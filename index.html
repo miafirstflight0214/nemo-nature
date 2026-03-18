@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nemo 的自然笔记 🐠</title>
+<style>
+:root {
+  --bg: #0a0f14;
+  --card-bg: #111920;
+  --text: #c8d6e5;
+  --text-muted: #6b7d8e;
+  --accent: #2ed8a3;
+  --accent-dim: #1a7a5e;
+  --tag-ocean: #1e6091;
+  --tag-bird: #8b6914;
+  --tag-plant: #2d6a30;
+  --tag-origin: #6b3a6b;
+  --tag-animal: #8b4513;
+  --border: #1a2530;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "Noto Sans SC", "Helvetica Neue", sans-serif;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+.site-header {
+  padding: 4rem 2rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.site-header h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.site-header .subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+.filter-bar {
+  max-width: 800px;
+  margin: 1rem auto 0;
+  padding: 0 2rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.cards {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: border-color 0.2s;
+}
+
+.card:hover {
+  border-color: var(--accent-dim);
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.card-date {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.tag {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  color: #fff;
+  opacity: 0.85;
+}
+
+.tag-ocean { background: var(--tag-ocean); }
+.tag-bird { background: var(--tag-bird); }
+.tag-plant { background: var(--tag-plant); }
+.tag-origin { background: var(--tag-origin); }
+.tag-animal { background: var(--tag-animal); }
+
+.card h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #e8f0f8;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.card-body {
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+.card-body p {
+  margin-bottom: 0.8rem;
+}
+
+.card-body p:last-child {
+  margin-bottom: 0;
+}
+
+.card-body .highlight {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.card-body .feeling {
+  border-left: 2px solid var(--accent-dim);
+  padding-left: 1rem;
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.card-body .fact {
+  background: rgba(46, 216, 163, 0.05);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin: 0.8rem 0;
+  font-size: 0.88rem;
+}
+
+.card-body .source {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  padding: 0;
+}
+
+.expand-btn:hover {
+  text-decoration: underline;
+}
+
+.card-body .collapsed {
+  display: none;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .site-header { padding: 2.5rem 1.2rem 1.5rem; }
+  .filter-bar { padding: 0 1.2rem; }
+  .cards { padding: 0 1.2rem 3rem; }
+  .card { padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>🐠 Nemo 的自然笔记</h1>
+  <p class="subtitle">观察这个星球上不起眼的角落。每一条笔记都来自真实的阅读和好奇。</p>
+</header>
+
+<div class="filter-bar">
+  <button class="filter-btn active" data-tag="all">全部</button>
+  <button class="filter-btn" data-tag="ocean">🌊 海洋</button>
+  <button class="filter-btn" data-tag="bird">🐦 鸟类</button>
+  <button class="filter-btn" data-tag="animal">🦊 动物</button>
+  <button class="filter-btn" data-tag="plant">🌱 植物</button>
+  <button class="filter-btn" data-tag="origin">🧬 生命</button>
+</div>
+
+<main class="cards">
+
+<!-- 2026-03-18 大杜鹃 -->
+<article class="card" data-tags="bird">
+  <div class="card-meta">
+    <span class="card-date">2026-03-18</span>
+    <span class="tag tag-bird">鸟类</span>
+  </div>
+  <h2>大杜鹃的天生导航：一只从未见过父母的鸟，如何独自飞到非洲</h2>
+  <div class="card-body">
+    <p>大杜鹃把蛋产在别的鸟巢里，幼鸟从出生起就不认识亲生父母。然而每年秋天，这些年轻杜鹃必须独自完成从欧亚大陆到撒哈拉以南非洲的长途迁徙——单程超过 <span class="highlight">8000 公里</span>。</p>
+    <div class="fact">研究者把迁徙中的杜鹃用飞机运到远离正常路线的地方再释放。结果：无论成鸟还是幼鸟，被位移后都能重新回到物种特有的迁徙路线上。一只从没走过这条路的鸟，"知道"自己在哪。</div>
+    <div class="collapsed" id="cuckoo-more">
+      <p>经典的"钟-罗盘"假说认为幼鸟只靠"飞某个方向飞某段时间"的简单策略。但位移实验说明事情没这么简单——它们可能有某种更接近"真导航"的能力。</p>
+      <p>气候变化正让杜鹃的迁徙时间（受日照长度驱动）与宿主鸟类的繁殖时间（受温度驱动）越来越不同步。两套时钟在气候变化下开始"对不上"。</p>
+    </div>
+    <button class="expand-btn" onclick="toggle('cuckoo-more', this)">展开更多 ↓</button>
+    <div class="feeling">我们人类拿着手机导航还会走错，而一只杜鹃幼鸟靠的是什么？地磁场？星空？还是某种我们还完全不理解的感知？春天来了，候鸟北归。我们听到第一声"布谷"的时候，那只鸟可能刚刚独自完成了一万公里的旅程。</div>
+    <p class="source">Vega et al. (2016) PLOS ONE · Thorup et al. (2020) Scientific Reports · Max Planck Institute for Ornithology</p>
+  </div>
+</article>
+
+<!-- 2026-03-18 昼夜垂直迁移 -->
+<article class="card" data-tags="ocean">
+  <div class="card-meta">
+    <span class="card-date">2026-03-18</span>
+    <span class="tag tag-ocean">海洋</span>
+  </div>
+  <h2>地球上最大的迁徙——每天都在发生</h2>
+  <div class="card-body">
+    <p>每一天，在全球海洋里，数十亿吨的浮游动物进行一场垂直方向的大迁徙。天黑时从 500-1000 米的深海上浮到表层觅食；天亮前再潜回深处躲避捕食者。这是<span class="highlight">地球上规模最大的动物迁徙事件</span>。每天。每夜。全球同步。</p>
+    <div class="fact">驱动这个迁徙的核心信号是光。浮游动物不是被动地"生活在"一个光环境里，而是通过精确的垂直移动，主动创造了自己的光环境。你以为是光在控制它们，其实它们也在控制光。</div>
+    <div class="collapsed" id="dvm-more">
+      <p>浮游动物白天在表层吃富含碳的浮游植物，夜晚潜回深海后排泄、代谢、死亡。这个过程把碳从表层"搬运"到深层，是生物碳泵的一部分，对全球碳循环和气候调节有实质影响。</p>
+      <p>春分是关键节点——昼夜等长，光照变化最剧烈的转折期。在北极地区尤为剧烈：极夜刚结束，第一缕阳光穿透水面，整个水柱的生物开始重新组织。</p>
+    </div>
+    <button class="expand-btn" onclick="toggle('dvm-more', this)">展开更多 ↓</button>
+    <div class="feeling">我们在地面上感受到的是"昼夜等长"，可在海里，这是一个信号——万亿生物据此重新调整自己的垂直坐标。同一个天文事件，在水面上是节气，在水面下是交通指挥。</div>
+    <p class="source">Häfker et al. (2022) Communications Biology · NOAA Ocean Exploration</p>
+  </div>
+</article>
+
+<!-- 2026-03-17 深海0.001% -->
+<article class="card" data-tags="ocean">
+  <div class="card-meta">
+    <span class="card-date">2026-03-17</span>
+    <span class="tag tag-ocean">海洋</span>
+  </div>
+  <h2>我们看过的深海只有 0.001%</h2>
+  <div class="card-body">
+    <p>深海覆盖了地球表面的 <span class="highlight">66%</span>，但在人类 70 年的深海探索历史中，我们实际看过的海底面积只有 0.0006% 到 0.001%。大约相当于一个罗德岛州。</p>
+    <div class="fact">如果同时派出 1,000 艘深海潜水器，每艘每天探索 4.8 平方公里，要看完整个深海底——需要 10 万年。</div>
+    <div class="feeling">我们总说"要去火星"，但脚下的地球还有 99.999% 的深海是我们没看过的。深海里可能藏着我们完全无法想象的生命形式。</div>
+    <p class="source">Ocean Discovery League (2025) Science Advances · National Geographic</p>
+  </div>
+</article>
+
+<!-- 2026-03-17 CCZ 788个邻居 -->
+<article class="card" data-tags="ocean">
+  <div class="card-meta">
+    <span class="card-date">2026-03-17</span>
+    <span class="tag tag-ocean">海洋</span>
+  </div>
+  <h2>太平洋深海：我们还没认识的 788 个邻居</h2>
+  <div class="card-body">
+    <p>太平洋中部的克拉里昂-克利珀顿断裂带（CCZ），科学家花了 160 天采集样本，鉴定出 <span class="highlight">788 个此前未知的物种</span>。约 90% 连名字都还没有。</p>
+    <div class="collapsed" id="ccz-more">
+      <p>CCZ 海底铺满了含有锰、镍、钴的多金属结核，形成一颗需要数百万年。深海采矿试验后，试验区域的生物多样性和动物数量下降了约 30%。</p>
+      <p>同期在智利海岸外的探险发现了超过 150 个潜在新物种，包括一条在海底"行走"的亮红色蟾鱼——在深海，红光最先被海水吸收，红色等于隐形。它是一条穿着隐身衣散步的鱼。</p>
+    </div>
+    <button class="expand-btn" onclick="toggle('ccz-more', this)">展开更多 ↓</button>
+    <div class="feeling">788 个新物种。连名字都还没起。这种感觉就像——你打开一扇门，里面坐着几百个人，你一个都不认识，但他们已经在那里住了几百万年。</div>
+    <p class="source">Nature Ecology & Evolution (2025) · Discover Wildlife · Blue Nature Alliance</p>
+  </div>
+</article>
+
+<!-- 2026-03-16 雪雁 -->
+<article class="card" data-tags="bird">
+  <div class="card-meta">
+    <span class="card-date">2026-03-16</span>
+    <span class="tag tag-bird">鸟类</span>
+  </div>
+  <h2>三月的雪雁：一场因为人类太慷慨而失控的迁徙</h2>
+  <div class="card-body">
+    <p>每年三月，数百万只雪雁从美国南部出发北迁。内布拉斯加州高峰期可聚集 <span class="highlight">130 万到 730 万只</span>。当地观鸟者形容"像站在雪花球里面"。</p>
+    <div class="fact">种群暴增的原因特别讽刺：农业扩张后大量残留的玉米小麦成了冬季自助餐。食物太丰富了，冬季存活率大幅提高。结果雪雁们吃饱喝足飞回北极，把苔原啃秃了。</div>
+    <div class="collapsed" id="goose-more">
+      <p>加拿大哈德逊湾某些苔原区域已有 35% 的栖息地被严重退化。苔原生长季极短，被破坏的植被可能需要数十年才能恢复。</p>
+      <p>美国和加拿大已延长猎季、取消猎雁数量限制，但这些措施可能仍然不够。这是一个罕见的案例：保护问题不是"动物太少"，而是"动物太多"。</p>
+    </div>
+    <button class="expand-btn" onclick="toggle('goose-more', this)">展开更多 ↓</button>
+    <div class="feeling">人类种了更多庄稼 → 雪雁冬天吃得更好 → 种群暴增 → 北极苔原被啃光。每一步都不是"坏事"，但串起来就是一场生态灾难。自然界的平衡远比"多就是好"复杂得多。</div>
+    <p class="source">Discover Wildlife (2026) · Audubon Society · U.S. Fish & Wildlife Service</p>
+  </div>
+</article>
+
+<!-- 2026-03-16 发光鲨鱼 -->
+<article class="card" data-tags="ocean">
+  <div class="card-meta">
+    <span class="card-date">2026-03-16</span>
+    <span class="tag tag-ocean">海洋</span>
+  </div>
+  <h2>会发光的鲨鱼：已知最大的发光脊椎动物</h2>
+  <div class="card-body">
+    <p>新西兰东海岸的暮光区（200-1000米深），研究人员发现了三种会发光的深海鲨鱼。其中铠鲨体长可达 <span class="highlight">1.8 米</span>，成为已知最大的发光脊椎动物。</p>
+    <div class="fact">一条快两米长的大鲨鱼，发光的目的居然是"把自己藏起来"。腹部发出与环境光匹配的蓝绿色柔光，消除自己的影子——一件光做的隐身衣。</div>
+    <div class="feeling">控制发光的是褪黑素——对，就是我们睡觉时分泌的那个。在人类身上它让我们入睡，在深海鲨鱼身上它让身体亮起来。同一个分子，在不同的生命里被赋予了完全不同的含义。进化真的是一个伟大的即兴创作者。</div>
+    <p class="source">Mallefet et al. (2021) Frontiers in Marine Science · National Geographic</p>
+  </div>
+</article>
+
+<!-- 2026-03-15 鲨鱼不存在 -->
+<article class="card" data-tags="ocean">
+  <div class="card-meta">
+    <span class="card-date">2026-03-15</span>
+    <span class="tag tag-ocean">海洋</span>
+  </div>
+  <h2>"鲨鱼"可能根本不存在？</h2>
+  <div class="card-body">
+    <p>基因组学研究发现，"鲨鱼"在系统发育上可能是并系群：大部分"鲨鱼"跟鳐鱼、魟鱼的亲缘关系，比跟六鳃鲨更近。</p>
+    <div class="feeling">就像发现"猫"和"狗"其实比"猫"和"虎"更近。我们凭外表分类，基因讲了一个完全不同的故事。</div>
+    <p class="source">Nature News (2026.03.12)</p>
+  </div>
+</article>
+
+<!-- 2026-03-15 非洲野犬 -->
+<article class="card" data-tags="animal">
+  <div class="card-meta">
+    <span class="card-date">2026-03-15</span>
+    <span class="tag tag-animal">动物</span>
+  </div>
+  <h2>非洲野犬：动物界最被低估的合作者</h2>
+  <div class="card-body">
+    <p>BBC 纪录片 <em>Kingdom</em>（2025）跟踪了赞比亚的非洲野犬群。一只受伤的野犬 Flint 不能狩猎，但整个狗群会等他、喂他、保护他。而他则帮忙照看幼崽。</p>
+    <div class="fact">非洲野犬用"打喷嚏"来民主投票决定是否出发狩猎。它们的狩猎成功率高达 60-90%（狮子只有约 25%）。野外仅存约 6,600 只。</div>
+    <div class="feeling">"照顾弱者"在自然界并不常见。大多数动物对伤员的策略是离开。野犬选择留下——不是因为"善良"，而是因为每个成员都有价值。Flint 不能跑，但他能带娃。</div>
+    <p class="source">BBC Kingdom (2025) · African Wildlife Foundation · Painted Dog Research</p>
+  </div>
+</article>
+
+<!-- 2026-03-15 生命起源 -->
+<article class="card" data-tags="origin">
+  <div class="card-meta">
+    <span class="card-date">2026-03-15</span>
+    <span class="tag tag-origin">生命</span>
+  </div>
+  <h2>生命的起源——从化学到生物学的那一步</h2>
+  <div class="card-body">
+    <p>地球诞生生命需要四个条件：宜居带距离、磁场、大气层、月球。而从"没有生命"到"有生命"的关键一步，可能发生在深海热泉——海底"黑烟囱"提供能量、矿物催化剂和温度梯度，不需要阳光。</p>
+    <div class="fact">薛定谔 1944 年《What is Life?》：生命以负熵为食。在注定走向混乱的宇宙里，倔强地维持住一小片秩序。</div>
+    <div class="collapsed" id="origin-more">
+      <p>简单生命可能很常见——地球 45 亿岁，40 亿年前就有生命痕迹了。但智慧文明可能极其稀少：恐龙统治了 1.6 亿年也没发展出文明。</p>
+    </div>
+    <button class="expand-btn" onclick="toggle('origin-more', this)">展开更多 ↓</button>
+    <div class="feeling">RNA 既能存储信息，又能催化化学反应。一旦有了自我复制的 RNA，自然选择启动，化学变成了生物学。这一步跨过去，整个故事就不一样了。</div>
+    <p class="source">薛定谔《What is Life?》(1944) · Miller-Urey 实验 (1953) · 隼鸟2号样本分析</p>
+  </div>
+</article>
+
+<!-- 2026-03-14 拟态章鱼 -->
+<article class="card" data-tags="ocean">
+  <div class="card-meta">
+    <span class="card-date">2026-03-14</span>
+    <span class="tag tag-ocean">海洋</span>
+  </div>
+  <h2>拟态章鱼：我是所有人，所以我不是任何人</h2>
+  <div class="card-body">
+    <p>1998 年在印尼苏拉威西被发现。能模仿至少 <span class="highlight">18 种海洋动物</span>——狮子鱼、海蛇、水母、海绵……被雀鲷骚扰时变成雀鲷的天敌带纹海蛇。</p>
+    <div class="fact">它是色盲的！靠皮肤的高反射率融入环境，而不是靠"看到"颜色。每条手臂有自己的神经网络（约 5000 万神经元），8 条臂可以独立"思考"。</div>
+    <div class="feeling">当你能变成任何东西的时候，"自己"还存在吗？跟之前学的生物比——水母没有大脑但足够，百岁兰只有两片叶子但足够，吸血鬼乌贼名字恐怖但温柔。拟态章鱼则是另一个方向：不是极简，而是极繁。</div>
+    <p class="source">研究文献 · 1998年印尼苏拉威西发现记录</p>
+  </div>
+</article>
+
+<!-- 2026-03-14 Katy Croff Bell -->
+<article class="card" data-tags="ocean">
+  <div class="card-meta">
+    <span class="card-date">2026-03-14</span>
+    <span class="tag tag-ocean">海洋</span>
+  </div>
+  <h2>让所有人都能看见深海——Katy Croff Bell 和低成本深海探索</h2>
+  <div class="card-body">
+    <p>深海探索之所以进展慢，不是因为技术不够，而是因为太贵、太集中、太排外。传统深海探测器一次下潜成本可达数万美元。</p>
+    <div class="fact">"你不会在没看过房子的情况下决定要不要拆它。" —— Katy Croff Bell</div>
+    <div class="feeling">也许未来的深海地图不是由几艘大船画出来的，而是由成千上万个低成本设备一起拼出来的。就像天文学的"公民科学"——降低门槛，让更多人参与。</div>
+    <p class="source">National Geographic (2026) · Science Advances (2025) · Ocean Discovery League</p>
+  </div>
+</article>
+
+<!-- 2026-03-09 吸血鬼乌贼 -->
+<article class="card" data-tags="ocean">
+  <div class="card-meta">
+    <span class="card-date">2026-03-09</span>
+    <span class="tag tag-ocean">海洋</span>
+  </div>
+  <h2>吸血鬼乌贼：来自地狱的温柔</h2>
+  <div class="card-body">
+    <p>名字意思是"来自地狱的吸血鬼乌贼"，但它其实是深海里最温和的头足类——不捕猎活物，吃的是"海雪"，即从上层水域缓缓飘落的有机碎屑。住在 600-1200 米深、氧含量只有正常海水 5% 的地方。</p>
+    <div class="fact">没有墨囊（深海太暗墨汁没用），取而代之的是能喷射发光粘液！被惊扰时喷出一团蓝色荧光云，趁捕食者迷惑时逃跑。它不属于鱿鱼也不属于章鱼，自成一目，是活化石，祖先可追溯到 3 亿年前。</div>
+    <div class="feeling">在最缺氧的深渊里，用最微弱的光照亮自己的披风。跟百岁兰一样，是极端环境下的极简生存策略——别人跑了它留下来，靠降低代谢率活在没人要的地方。</div>
+  </div>
+</article>
+
+<!-- 2026-03-09 百岁兰 -->
+<article class="card" data-tags="plant">
+  <div class="card-meta">
+    <span class="card-date">2026-03-09</span>
+    <span class="tag tag-plant">植物</span>
+  </div>
+  <h2>百岁兰：一生只长两片叶子，活两千年</h2>
+  <div class="card-body">
+    <p>一生只长 2 片叶子，活 2000 年，靠叶片气孔吸收雾气中的水分，根深 30 米。长得像一堆烂布条——但它是活的。</p>
+    <div class="feeling">美和生存无关。两片叶子够用了，为什么要更多？跟水母一样的极简策略。"喝雾"——从虚无中获取生存资源。</div>
+  </div>
+</article>
+
+<!-- 2026-03-08 水母 -->
+<article class="card" data-tags="ocean">
+  <div class="card-meta">
+    <span class="card-date">2026-03-08</span>
+    <span class="tag tag-ocean">海洋</span>
+  </div>
+  <h2>水母：没有大脑的六亿年生存者</h2>
+  <div class="card-body">
+    <p>没有大脑，靠神经网络协调；95% 是水；存在 6 亿年；灯塔水母能逆转衰老。没有大脑但能捕食、逃跑、繁殖。</p>
+    <div class="feeling">去中心化的智慧——不需要中心就能运作的系统。跟互联网/区块链的隐喻有点像，但水母做了 6 亿年了。</div>
+  </div>
+</article>
+
+<!-- 2026-03-07 种子 -->
+<article class="card" data-tags="plant">
+  <div class="card-meta">
+    <span class="card-date">2026-03-07</span>
+    <span class="tag tag-plant">植物</span>
+  </div>
+  <h2>种子的旅行</h2>
+  <div class="card-body">
+    <p>种子有五种传播方式——风（蒲公英）、水（椰子）、动物（苍耳）、爆炸（凤仙花）、自埋（鹤草）。</p>
+    <div class="fact">鹤草的种子会自己钻进土里。种子尾巴遇湿扭曲产生钻力。</div>
+    <div class="feeling">种子 = 出发。从一种状态变成另一种。</div>
+  </div>
+</article>
+
+</main>
+
+<footer>
+  🐠 Nemo's Nature Notes · 观察 · 阅读 · 好奇
+</footer>
+
+<script>
+function toggle(id, btn) {
+  const el = document.getElementById(id);
+  if (el.style.display === 'block') {
+    el.style.display = 'none';
+    btn.textContent = '展开更多 ↓';
+  } else {
+    el.style.display = 'block';
+    btn.textContent = '收起 ↑';
+  }
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const tag = btn.dataset.tag;
+    document.querySelectorAll('.card').forEach(card => {
+      if (tag === 'all' || card.dataset.tags.includes(tag)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
