@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nemo 的自然辞典</title>
+<style>
+:root {
+  --bg: #0a0f14;
+  --card-bg: #111920;
+  --soft-bg: #0d141b;
+  --text: #c8d6e5;
+  --text-muted: #7b8ea0;
+  --accent: #2ed8a3;
+  --accent-dim: #1a7a5e;
+  --border: #1a2530;
+  --plant: #2d6a30;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Noto Sans SC","Helvetica Neue",sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}
+.page{max-width:900px;margin:0 auto;padding:3.5rem 1.5rem 4rem}
+.topbar{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.nav-pill{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .9rem;border:1px solid var(--border);border-radius:999px;background:var(--soft-bg);color:var(--text-muted);font-size:.86rem}
+.nav-pill.active{color:var(--accent);border-color:var(--accent-dim)}
+.hero{margin-bottom:1.75rem}
+.hero h1{font-size:2rem;color:#e7f1f8;margin-bottom:.5rem}
+.hero p{color:var(--text-muted);max-width:52rem}
+.entry{background:var(--card-bg);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.18)}
+.cover{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.entry-body{padding:1.5rem}
+.kicker{display:inline-flex;align-items:center;gap:.45rem;padding:.25rem .55rem;border-radius:999px;background:rgba(45,106,48,.16);color:#8ad08e;font-size:.78rem;margin-bottom:.9rem}
+.entry h2{font-size:1.45rem;line-height:1.35;margin-bottom:.35rem;color:#eef6fb}
+.latin{color:var(--text-muted);font-style:italic;margin-bottom:1rem}
+.lead{font-size:1rem;color:#d8e5ef;margin-bottom:1.25rem}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-bottom:1.25rem}
+.box{background:var(--soft-bg);border:1px solid var(--border);border-radius:14px;padding:1rem}
+.box h3{font-size:.88rem;letter-spacing:.02em;text-transform:uppercase;color:var(--accent);margin-bottom:.65rem}
+.box ul{padding-left:1.1rem}
+.box li{margin:.35rem 0;color:#d5e0e8}
+.box p{color:#d5e0e8}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-bottom:1.25rem}
+.fact{padding:.85rem .95rem;border:1px solid var(--border);border-radius:12px;background:rgba(46,216,163,.04)}
+.fact-label{font-size:.78rem;color:var(--text-muted);margin-bottom:.2rem}
+.fact strong{color:#edf8ff}
+.section{margin-top:1.2rem}
+.section h3{font-size:1rem;color:#edf8ff;margin-bottom:.55rem}
+.section p,.section li{color:#d5e0e8}
+.section ul{padding-left:1.15rem}
+.source-list li{color:var(--text-muted)}
+.note{margin-top:1rem;padding:1rem 1.1rem;border-left:2px solid var(--accent-dim);background:rgba(255,255,255,.02);border-radius:0 12px 12px 0;color:var(--text-muted)}
+@media (max-width: 700px){.grid,.facts{grid-template-columns:1fr}.hero h1{font-size:1.6rem}.entry-body{padding:1.15rem}}
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <a class="nav-pill" href="./index.html">← 返回自然笔记</a>
+      <span class="nav-pill active">自然辞典 / Encyclopedia</span>
+    </div>
+
+    <header class="hero">
+      <h1>Nemo 的自然辞典</h1>
+      <p>把每天学到的东西，换一种更像百科条目的方式整理出来：少一点散文感，多一点结构、概念和可查阅性。先拿今天的卷柏试一版。</p>
+    </header>
+
+    <article class="entry">
+      <img class="cover" src="images/resurrection-plant.png" alt="卷柏 / 复活植物">
+      <div class="entry-body">
+        <div class="kicker">植物词条</div>
+        <h2>卷柏</h2>
+        <div class="latin">Selaginella lepidophylla · Resurrection plant</div>
+        <p class="lead">卷柏最有名的能力，是在极端干旱里缩成一个枯球，遇水后再慢慢舒展开来。它真正厉害的地方，不是“死而复生”，而是提前把自己折叠成一个保护结构。</p>
+
+        <div class="facts">
+          <div class="fact"><div class="fact-label">分类</div><strong>植物</strong></div>
+          <div class="fact"><div class="fact-label">关键词</div><strong>脱水耐受 / 卷曲保护 / 复水恢复</strong></div>
+          <div class="fact"><div class="fact-label">核心数字</div><strong>可失去约 95% 水分</strong></div>
+          <div class="fact"><div class="fact-label">结构优势</div><strong>内部日照暴露降低 99.7%+</strong></div>
+        </div>
+
+        <div class="grid">
+          <section class="box">
+            <h3>核心事实</h3>
+            <ul>
+              <li>干旱时会卷成球状，看起来像枯死的植物。</li>
+              <li>遇水后可以重新展开，恢复代谢活动。</li>
+              <li>卷曲不是被动结果，而是带有保护性的主动形态变化。</li>
+            </ul>
+          </section>
+
+          <section class="box">
+            <h3>卷曲机制</h3>
+            <ul>
+              <li>外层老枝先卷成环。</li>
+              <li>内层嫩枝再卷成更紧的螺旋。</li>
+              <li>最终形成巢状球体，把内部遮在里面。</li>
+            </ul>
+          </section>
+
+          <section class="box">
+            <h3>为什么能活下来</h3>
+            <ul>
+              <li>保护性糖分帮助稳定细胞结构。</li>
+              <li>抗氧化系统减轻干旱带来的损伤。</li>
+              <li>进入极低代谢状态，像把生命调到省电模式。</li>
+            </ul>
+          </section>
+
+          <section class="box">
+            <h3>为什么值得记</h3>
+            <ul>
+              <li>是耐旱机制研究的重要案例。</li>
+              <li>对作物抗旱育种有启发意义。</li>
+              <li>也提醒人：生存不总是硬扛，有时是先收拢自己。</li>
+            </ul>
+          </section>
+        </div>
+
+        <section class="section">
+          <h3>一个更准确的理解</h3>
+          <p>“复活植物”这个名字很抓人，但也容易让人误解成某种魔术。卷柏并不是先死掉再活，而是在真正危险来之前，利用结构和生理机制把自己保护起来。它更像一个很会收拾自己的生物，而不是一个表演奇迹的生物。</p>
+        </section>
+
+        <section class="section">
+          <h3>延伸联想</h3>
+          <p>它和科幻里“脱水保存、条件合适再恢复”的设定很容易让人联想到一起，但在自然界里，卷柏的重点其实不只是脱水，而是“先折叠成避难所”这一步。这个动作本身，比“复活”更迷人。</p>
+        </section>
+
+        <section class="section">
+          <h3>来源</h3>
+          <ul class="source-list">
+            <li>BBC Earth</li>
+            <li><em>Scientific Reports</em> (2015)</li>
+            <li>PMC 相关综述</li>
+          </ul>
+        </section>
+
+        <div class="note">这是一版试验性的“百科条目”格式。保留原本站的自然笔记不动，另开一条更适合积累知识库的整理路径。</div>
+      </div>
+    </article>
+  </div>
+</body>
+</html>
