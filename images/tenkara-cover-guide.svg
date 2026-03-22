@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7f0e4"/>
+      <stop offset="100%" stop-color="#efe5d6"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#b6d3de"/>
+      <stop offset="100%" stop-color="#d6e5ea"/>
+    </linearGradient>
+    <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.06"/></feComponentTransfer></filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" filter="url(#paper)" opacity="0.5"/>
+  <path d="M0 560 C140 520, 280 600, 470 550 S870 500, 1200 570 L1200 800 L0 800Z" fill="url(#water)"/>
+  <path d="M0 605 C180 570, 290 635, 465 592 S865 548, 1200 615" fill="none" stroke="#6f98a8" stroke-width="3" opacity="0.8"/>
+  <path d="M40 520 C200 485, 335 550, 520 510 S910 470, 1180 525" fill="none" stroke="#8cb2bf" stroke-width="2.5" opacity="0.8"/>
+  <g fill="#b39c83" opacity="0.95">
+    <ellipse cx="225" cy="575" rx="75" ry="36"/>
+    <ellipse cx="380" cy="610" rx="60" ry="32"/>
+    <ellipse cx="640" cy="585" rx="88" ry="42"/>
+    <ellipse cx="905" cy="620" rx="65" ry="28"/>
+  </g>
+  <g fill="#8ba37d" opacity="0.9">
+    <path d="M120 440 q10 -35 24 -60 q6 34 2 72 z"/>
+    <path d="M145 430 q24 -55 52 -102 q5 64 -10 114 z"/>
+    <path d="M1030 450 q18 -44 38 -90 q10 50 8 93 z"/>
+  </g>
+  <g stroke="#3c4a44" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M300 430 q35 -90 75 -140"/>
+    <path d="M376 290 l18 58"/>
+    <path d="M366 320 q30 3 44 18"/>
+    <path d="M336 372 q28 20 32 61"/>
+    <path d="M332 380 q-14 58 -32 112"/>
+    <path d="M324 492 q-12 64 -20 111"/>
+    <path d="M364 432 q34 26 48 78"/>
+    <path d="M412 510 q18 57 20 97"/>
+  </g>
+  <g stroke="#8b6b45" stroke-width="7" stroke-linecap="round">
+    <path d="M378 288 L785 125"/>
+  </g>
+  <g stroke="#567a63" stroke-width="2.5" stroke-linecap="round" fill="none">
+    <path d="M785 125 q130 18 202 84"/>
+    <path d="M988 209 q35 26 61 62" stroke="#6f98a8" stroke-dasharray="7 8"/>
+  </g>
+  <g fill="#b56d32">
+    <circle cx="1050" cy="272" r="5"/>
+    <path d="M1046 270 q10 4 6 14 q-8 -1 -10 -8 z"/>
+  </g>
+  <g stroke="#7d6d58" stroke-width="1.4" fill="none" opacity="0.55">
+    <line x1="808" y1="115" x2="917" y2="95"/>
+    <line x1="1003" y1="265" x2="1118" y2="248"/>
+    <line x1="643" y1="560" x2="752" y2="534"/>
+  </g>
+</svg>

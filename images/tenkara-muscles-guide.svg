@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7f0e4"/>
+      <stop offset="100%" stop-color="#efe5d6"/>
+    </linearGradient>
+    <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.05"/></feComponentTransfer></filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" filter="url(#paper)" opacity="0.45"/>
+  <g stroke="#36433e" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="390" cy="165" r="34"/>
+    <path d="M390 200 q-18 48 -10 102"/>
+    <path d="M380 236 q-58 32 -94 87"/>
+    <path d="M380 236 q74 28 108 78"/>
+    <path d="M488 314 q34 7 72 0"/>
+    <path d="M374 304 q-6 84 17 156"/>
+    <path d="M392 460 q-9 89 -31 165"/>
+    <path d="M392 460 q53 73 74 164"/>
+    <path d="M286 323 q-44 74 -38 150"/>
+  </g>
+  <g stroke="#8b6b45" stroke-width="8" stroke-linecap="round">
+    <path d="M560 314 L1010 135"/>
+  </g>
+  <g stroke="#6f98a8" stroke-width="3" fill="none" stroke-dasharray="8 9" opacity="0.9">
+    <path d="M1010 135 q58 18 98 56"/>
+    <path d="M1108 191 q28 22 44 52"/>
+  </g>
+  <g fill="#5d7d66" opacity="0.22">
+    <path d="M391 212 q38 10 57 33 q-31 7 -53 6 q-13 -13 -4 -39 z"/>
+    <path d="M442 282 q39 8 53 30 q-26 8 -47 9 q-13 -11 -6 -39 z"/>
+    <path d="M370 287 q-27 57 1 143 q38 -3 65 -19 q-31 -43 -35 -126 z"/>
+    <path d="M383 463 q-23 73 -24 136 q25 4 50 -1 q11 -70 3 -142 z"/>
+    <path d="M472 306 q38 -3 58 15 q-20 10 -43 14 q-17 -7 -15 -29 z"/>
+  </g>
+  <g stroke="#567a63" stroke-width="2.5" fill="none">
+    <path d="M440 228 q100 -64 210 -58"/>
+    <path d="M465 296 q102 -18 201 -3"/>
+    <path d="M440 402 q115 2 206 -49"/>
+  </g>
+  <g fill="#7d6d58" font-family="'Noto Serif SC', serif" font-size="24">
+    <text x="662" y="180">肩 / 上背带动起竿</text>
+    <text x="677" y="302">前臂与手腕决定线的节奏</text>
+    <text x="659" y="386">核心稳定，让动作不散</text>
+  </g>
+  <g stroke="#7d6d58" stroke-width="1.6" opacity="0.55">
+    <line x1="604" y1="175" x2="438" y2="230"/>
+    <line x1="645" y1="298" x2="500" y2="315"/>
+    <line x1="622" y1="381" x2="430" y2="409"/>
+  </g>
+  <g fill="#b56d32">
+    <circle cx="1152" cy="243" r="5"/>
+    <path d="M1148 240 q10 6 6 14 q-8 -1 -10 -8 z"/>
+  </g>
+  <g fill="#7b8ea0" font-family="'Noto Serif SC', serif" font-size="22">
+    <text x="92" y="728">要点：不是“猛甩”，而是由肩带起竿、前臂传递、手腕收住，核心负责让动作稳定、干净。</text>
+  </g>
+</svg>
