@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nemo 的小物钓鱼库</title>
+<style>
+:root {
+  --bg: #0a0f14;
+  --card-bg: #111920;
+  --soft-bg: #0d141b;
+  --text: #c8d6e5;
+  --text-muted: #7b8ea0;
+  --accent: #2ed8a3;
+  --accent-dim: #1a7a5e;
+  --border: #1a2530;
+  --river: #3f8ecb;
+  --surface: #7ac7ff;
+  --bottom: #a88958;
+  --native: #7bc77a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Noto Sans SC","Helvetica Neue",sans-serif;line-height:1.72}
+a{text-decoration:none;color:inherit}
+.page{max-width:1100px;margin:0 auto;padding:3.2rem 1.4rem 4rem}
+.topbar{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.pill{display:inline-flex;align-items:center;padding:.45rem .9rem;border:1px solid var(--border);border-radius:999px;background:var(--soft-bg);color:var(--text-muted);font-size:.86rem}
+.pill.active{color:var(--accent);border-color:var(--accent-dim)}
+.hero{background:linear-gradient(180deg, rgba(46,216,163,.08), rgba(255,255,255,0));border:1px solid var(--border);border-radius:20px;padding:1.6rem 1.4rem 1.5rem;margin-bottom:1.4rem}
+.hero h1{font-size:1.8rem;color:#eaf5fb;margin-bottom:.4rem}
+.hero p{color:var(--text-muted);max-width:52rem}
+.note{margin-top:.8rem;font-size:.92rem;color:var(--text-muted)}
+.section{margin-top:1.6rem}
+.section h2{font-size:1rem;letter-spacing:.04em;color:#eaf5fb;margin-bottom:.9rem}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:18px;padding:1.1rem 1rem 1rem}
+.card:hover{border-color:var(--accent-dim)}
+.head{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;margin-bottom:.7rem}
+.title{font-size:1.06rem;color:#eef8ff;line-height:1.35}
+.tag{display:inline-flex;align-items:center;padding:.18rem .55rem;border-radius:999px;font-size:.72rem;border:1px solid transparent;flex-shrink:0}
+.tag.surface{background:rgba(122,199,255,.08);color:var(--surface);border-color:rgba(122,199,255,.15)}
+.tag.bottom{background:rgba(168,137,88,.1);color:#d2b48c;border-color:rgba(168,137,88,.18)}
+.tag.native{background:rgba(123,199,122,.08);color:var(--native);border-color:rgba(123,199,122,.15)}
+.meta{font-size:.82rem;color:var(--text-muted);margin-bottom:.65rem}
+.desc{font-size:.92rem;color:#d5e3ec;margin-bottom:.8rem}
+.kv{display:grid;gap:.45rem}
+.kv div{font-size:.86rem;color:#d0dce5}
+.kv strong{color:#edf8ff}
+.footer{margin-top:1.8rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.86rem;color:var(--text-muted)}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.hero h1{font-size:1.55rem}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a class="pill" href="./index.html">← 返回自然笔记</a>
+    <a class="pill" href="./encyclopedia.html">自然辞典</a>
+    <span class="pill active">小物钓鱼库</span>
+  </div>
+
+  <section class="hero">
+    <h1>Nemo 的小物钓鱼库 · 候选清单 v1</h1>
+    <p>这是一版面向手机应用的鱼种候选页，筛选逻辑优先考虑 <strong>小物钓实际遇见概率、识别价值、观察趣味</strong>，而不是严格按鱼类系统分类来排。分类是“钓鱼视角的粗分类”，方便产品使用，不等同正式分类学目录。</p>
+    <p class="note">说明：不同流域、水温、底质和城市化程度会显著改变鱼种构成。北京及华北平原常见鱼、常见原生小型鱼和小物钓玩家经常分享的对象优先入选。个别条目用“类”处理，是为了避免在地域差异下把物种写得过死。</p>
+  </section>
+
+  <section class="section">
+    <h2>一、抢口型 / 常见入门鱼</h2>
+    <div class="grid">
+      <article class="card"><div class="head"><div class="title">白条</div><span class="tag surface">上层</span></div><div class="meta">常见名之一，部分地区与餐条混称</div><div class="desc">中上层群游小型鱼，小物钓里最常见的“抢口王”之一，动作快、反应灵敏，是很多人入门时最先熟悉的对象。</div><div class="kv"><div><strong>常见环境：</strong>开阔亮水、缓流、河道边缘</div><div><strong>生活习惯：</strong>群游，喜追逐下落食物与水面碎屑</div><div><strong>小物钓提示：</strong>轻线小钩、下落接口明显，容易闹漂</div></div></article>
+      <article class="card"><div class="head"><div class="title">麦穗鱼</div><span class="tag surface">通用</span></div><div class="meta">Pseudorasbora parva</div><div class="desc">分布广、适应性强，是华北平原和沟渠环境中极常见的小型淡水鱼，体型虽小，但非常适合做图鉴型识别入门。</div><div class="kv"><div><strong>常见环境：</strong>沟渠、池塘、缓流水边</div><div><strong>生活习惯：</strong>杂食，常在浅水区活动</div><div><strong>小物钓提示：</strong>小钩细饵容易中，稳定性高</div></div></article>
+      <article class="card"><div class="head"><div class="title">鳑鲏类</div><span class="tag native">原生</span></div><div class="meta">Rhodeus / Acheilognathus 等类群，适合 App 先做“类群入口”</div><div class="desc">小物钓里最受欢迎的观赏型原生鱼之一，体侧反光漂亮，婚姻色和雌鱼产卵管等特征也很有识别价值。</div><div class="kv"><div><strong>常见环境：</strong>静水、缓流、浅滩、水草边</div><div><strong>生活习惯：</strong>常与蚌类生态关系紧密</div><div><strong>小物钓提示：</strong>适合做细分图鉴与拍照记录</div></div></article>
+      <article class="card"><div class="head"><div class="title">鲫鱼幼体 / 小鲫</div><span class="tag surface">通用</span></div><div class="meta">Carassius auratus 复合群，城市水体极常见</div><div class="desc">虽然不是典型“观赏型小物”，但在城市河湖、沟渠、静水环境中出镜率极高，作为应用里的基础认知鱼种很有必要。</div><div class="kv"><div><strong>常见环境：</strong>湖库、池塘、缓流水</div><div><strong>生活习惯：</strong>杂食，适应性强</div><div><strong>小物钓提示：</strong>可作为新手熟悉漂相的对象</div></div></article>
+      <article class="card"><div class="head"><div class="title">小鲤 / 鲤鱼幼体</div><span class="tag surface">通用</span></div><div class="meta">Cyprinus carpio</div><div class="desc">小体型阶段容易被新手忽略，但须、体型和摄食方式都很有代表性，适合放在“常见但容易被看漏”的条目里。</div><div class="kv"><div><strong>常见环境：</strong>静水、慢流、底质较软区域</div><div><strong>生活习惯：</strong>底层觅食，翻底能力强</div><div><strong>小物钓提示：</strong>更看底层口，不像白条那样抢口</div></div></article>
+      <article class="card"><div class="head"><div class="title">马口鱼</div><span class="tag native">溪流</span></div><div class="meta">常指马口鱼类群，北方溪流及山前河段常见</div><div class="desc">体态修长、速度快，很多小物钓和轻路亚玩家都很熟。比白条更“冲”、更有掠食性格，是很有辨识度的一类鱼。</div><div class="kv"><div><strong>常见环境：</strong>清水、流速较快河段</div><div><strong>生活习惯：</strong>偏追击型摄食</div><div><strong>小物钓提示：</strong>动态饵、逗动和接口表现更有意思</div></div></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>二、底栖 / 溪流结构型</h2>
+    <div class="grid">
+      <article class="card"><div class="head"><div class="title">棒花鱼</div><span class="tag bottom">底层</span></div><div class="meta">Abbottina rivularis</div><div class="desc">华北平原、缓流河道和沟渠中较常见的小型底层鱼，贴底活动，外形朴素但很典型，是“别只盯上层”的好教材。</div><div class="kv"><div><strong>常见环境：</strong>缓流水、底质较平的河段</div><div><strong>生活习惯：</strong>底层拣食，无脊椎动物与碎屑为主</div><div><strong>小物钓提示：</strong>更吃沉底或近底的细小饵</div></div></article>
+      <article class="card"><div class="head"><div class="title">虾虎鱼类 / 爬地虎</div><span class="tag bottom">底层</span></div><div class="meta">Gobiidae，多种小型虾虎鱼在城市与近郊水域可见</div><div class="desc">底栖结构感很强的类群，常贴着石头、桥墩、障碍活动。视觉上也很有趣，很多种类头大、伏地、像一小块会动的底色。</div><div class="kv"><div><strong>常见环境：</strong>石缝、桥墩、障碍边、浅滩底部</div><div><strong>生活习惯：</strong>底栖伏击或拣食</div><div><strong>小物钓提示：</strong>适合近底定点、小范围逗钓</div></div></article>
+      <article class="card"><div class="head"><div class="title">泥鳅</div><span class="tag bottom">底层</span></div><div class="meta">Misgurnus anguillicaudatus</div><div class="desc">非常典型的底层小型鱼，很多人熟悉但未必会把它纳入小物钓图鉴。其实它的栖境偏好和底层行为都很适合做产品条目。</div><div class="kv"><div><strong>常见环境：</strong>软底、淤泥、缓流、稻田沟渠</div><div><strong>生活习惯：</strong>夜间或底层活动明显</div><div><strong>小物钓提示：</strong>更贴底、更偏静口环境</div></div></article>
+      <article class="card"><div class="head"><div class="title">花鳅类</div><span class="tag bottom">底层</span></div><div class="meta">Cobitidae，建议 App 前期以“类群”呈现</div><div class="desc">花鳅、条鳅一类外观细长，花纹和底色很适合图鉴展示。种级识别往往需要更细特征，前期可以先做类群入口。</div><div class="kv"><div><strong>常见环境：</strong>底质较细、水流平缓到中等</div><div><strong>生活习惯：</strong>底栖、善钻底或贴底活动</div><div><strong>小物钓提示：</strong>适合和泥鳅、虾虎做对比条目</div></div></article>
+      <article class="card"><div class="head"><div class="title">吸鳅类 / 爬岩鳅类</div><span class="tag native">溪流</span></div><div class="meta">高溶氧溪流原生鱼，北方山区清水环境更可能遇到</div><div class="desc">体形和口器都有明显适应急流的特征，是“结构—功能”关系非常鲜明的一组鱼，适合作为 App 里的特色条目。</div><div class="kv"><div><strong>常见环境：</strong>山溪、急流、石面</div><div><strong>生活习惯：</strong>贴附石面，适应高流速</div><div><strong>小物钓提示：</strong>更偏观察价值，不一定是最易遇到的入门鱼</div></div></article>
+      <article class="card"><div class="head"><div class="title">黄黝鱼 / 近似小型底栖鱼类</div><span class="tag native">原生</span></div><div class="meta">适合作为北方原生小型底栖鱼扩展位</div><div class="desc">这类鱼在爱好者分享里常作为“很像一块底色”的对象出现，适合在产品中体现“同样是底层鱼，形态和行为并不一样”。</div><div class="kv"><div><strong>常见环境：</strong>底部障碍多、流速有变化的河段</div><div><strong>生活习惯：</strong>伏底、警觉性较高</div><div><strong>小物钓提示：</strong>后续可以按地区进一步细分</div></div></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>三、原生观赏 / 图鉴价值高</h2>
+    <div class="grid">
+      <article class="card"><div class="head"><div class="title">高体鳑鲏</div><span class="tag native">原生</span></div><div class="meta">常见鳑鲏类代表，适合单独做一张卡</div><div class="desc">体型侧扁、轮廓明确，婚姻色和体侧反光都很漂亮，是很多原生鱼爱好者入门鳑鲏的第一批印象鱼。</div><div class="kv"><div><strong>常见环境：</strong>静水、缓流、浅滩边</div><div><strong>生活习惯：</strong>多在中下层和障碍边活动</div><div><strong>小物钓提示：</strong>适合拍照记录与图鉴展示</div></div></article>
+      <article class="card"><div class="head"><div class="title">中华鳑鲏</div><span class="tag native">原生</span></div><div class="meta">常见原生观赏鱼类之一</div><div class="desc">作为常见原生鱼代表，名字本身辨识度很高，适合 App 中承担“新手第一次认真认识鳑鲏”这一入口角色。</div><div class="kv"><div><strong>常见环境：</strong>池塘、沟渠、浅水缓流</div><div><strong>生活习惯：</strong>杂食，喜欢结构边与植被边</div><div><strong>小物钓提示：</strong>和高体鳑鲏可做对照页</div></div></article>
+      <article class="card"><div class="head"><div class="title">鱊类</div><span class="tag native">原生</span></div><div class="meta">如齐氏鱊等，建议前期先做类群卡</div><div class="desc">和鳑鲏一样具有很高观赏价值，但不同种在识别上更细，适合作为“进阶识鱼”模块，不必一开始全部拆到种。</div><div class="kv"><div><strong>常见环境：</strong>缓流、蚌类存在的水域更值得关注</div><div><strong>生活习惯：</strong>繁殖行为与蚌密切相关</div><div><strong>小物钓提示：</strong>很适合做有趣事实与生态关系页面</div></div></article>
+      <article class="card"><div class="head"><div class="title">青鳉</div><span class="tag native">原生</span></div><div class="meta">中国原生青鳉类，地域上需注意种与分布差异</div><div class="desc">体态轻盈、表层活动明显，是观察感很强的小型鱼。虽然不一定是所有北京水体都常见，但作为应用里“轻盈表层鱼”的代表非常合适。</div><div class="kv"><div><strong>常见环境：</strong>静水、草边、浅水区</div><div><strong>生活习惯：</strong>表层活动，群游感明显</div><div><strong>小物钓提示：</strong>偏观察价值，产品里可做特色卡</div></div></article>
+      <article class="card"><div class="head"><div class="title">白云金丝鱼（扩展位）</div><span class="tag native">原生</span></div><div class="meta">更偏原生观赏鱼文化中的代表种</div><div class="desc">它不一定是北京河边最常见的小物对象，但在“原生鱼爱好者语言系统”里辨识度很高，适合做 App 的扩展页或收藏页。</div><div class="kv"><div><strong>常见环境：</strong>清洁小溪、缓流水体</div><div><strong>生活习惯：</strong>群游，小型无脊椎动物为食</div><div><strong>小物钓提示：</strong>更适合做图鉴与爱好者拓展内容</div></div></article>
+      <article class="card"><div class="head"><div class="title">中国斗鱼（扩展位）</div><span class="tag native">原生</span></div><div class="meta">更多作为原生观赏鱼文化的重要代表</div><div class="desc">虽然不是典型北方河边小物钓高频对象，但在原生鱼图鉴、地域鱼文化和玩家交流里很有代表性，值得预留。</div><div class="kv"><div><strong>常见环境：</strong>静水、植被多、缓慢小水体</div><div><strong>生活习惯：</strong>领地性较明显</div><div><strong>小物钓提示：</strong>可归入“扩展 / 收藏页”</div></div></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>四、轻路亚 / 更活跃的中上层小型鱼</h2>
+    <div class="grid">
+      <article class="card"><div class="head"><div class="title">宽鳍鱲类</div><span class="tag native">溪流</span></div><div class="meta">鱲类常见于清水溪流环境，视觉冲击力强</div><div class="desc">很多原生鱼玩家对这类鱼印象深，是因为它们体色、流线和攻击性都更鲜明。很适合做“不是所有小物都温吞”的对照页。</div><div class="kv"><div><strong>常见环境：</strong>清水溪流、中上层</div><div><strong>生活习惯：</strong>活跃，常追逐小型猎物</div><div><strong>小物钓提示：</strong>更适合动态饵与搜索型玩法</div></div></article>
+      <article class="card"><div class="head"><div class="title">小型翘嘴类 / 鲌类幼体</div><span class="tag surface">上层</span></div><div class="meta">早期阶段容易和白条等混淆</div><div class="desc">这类鱼在幼体或小体型阶段很容易被误认，放进 App 里可以帮助用户知道：看起来都银亮细长，但并不是一回事。</div><div class="kv"><div><strong>常见环境：</strong>开阔中上层</div><div><strong>生活习惯：</strong>偏追击型</div><div><strong>小物钓提示：</strong>适合做“易混淆鱼种”专题</div></div></article>
+      <article class="card"><div class="head"><div class="title">小鳈类</div><span class="tag native">原生</span></div><div class="meta">北方及华中很多水体都可见的小型鲤科鱼类群</div><div class="desc">“鳈”类对非专业用户来说陌生，但在原生鱼图鉴里很有存在感。它们适合让产品从“钓得到的鱼”走向“开始学会认鱼”。</div><div class="kv"><div><strong>常见环境：</strong>河流中上层到中层</div><div><strong>生活习惯：</strong>群游、对环境变化敏感</div><div><strong>小物钓提示：</strong>前期可先做类群卡，再逐步细分</div></div></article>
+      <article class="card"><div class="head"><div class="title">餐条（待与白条精细拆分）</div><span class="tag surface">上层</span></div><div class="meta">建议 App 中设置“地区混称提醒”</div><div class="desc">很多地方把白条、餐条等名称混着叫。产品里最好承认这种民间命名现实，再逐步引导用户识别而不是一刀切纠错。</div><div class="kv"><div><strong>常见环境：</strong>中上层明水区域</div><div><strong>生活习惯：</strong>群游、抢食</div><div><strong>小物钓提示：</strong>适合作为命名差异的教学示例</div></div></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>五、城市水体 / 常见但值得单列的鱼</h2>
+    <div class="grid">
+      <article class="card"><div class="head"><div class="title">鳑鲏—蚌生态关联条目</div><span class="tag native">生态</span></div><div class="meta">不是单一鱼种，而是建议保留的专题卡</div><div class="desc">如果是做手机应用，除了物种卡，很值得做一张“鳑鲏为什么和蚌绑在一起”的专题页。这会让产品比普通图鉴更有记忆点。</div><div class="kv"><div><strong>适合内容：</strong>产卵方式、蚌类依赖、生态关系</div><div><strong>产品价值：</strong>让用户理解“认鱼”不只是看花纹</div></div></article>
+      <article class="card"><div class="head"><div class="title">草鱼 / 鲢鳙 / 鳊类幼体</div><span class="tag surface">通用</span></div><div class="meta">作为“常见但不一定是小物核心”的补充组</div><div class="desc">它们在城市公园水体、放养环境和大型静水里很常见。即使不是最典型的小物钓主角，应用里也值得保留基础识别入口。</div><div class="kv"><div><strong>常见环境：</strong>城市湖面、水库、公园水体</div><div><strong>生活习惯：</strong>种间差异大，适合做基础科普</div><div><strong>产品建议：</strong>用“补充鱼种”而非主角卡呈现</div></div></article>
+      <article class="card"><div class="head"><div class="title">黄颡鱼幼体 / 小型鲶形目</div><span class="tag bottom">底层</span></div><div class="meta">部分城市和郊区水体可见</div><div class="desc">和典型鲤科小鱼相比，鲶形目幼体的胡须、口位、底层活动方式都很有识别价值，适合作为“长相完全不同”的对比卡。</div><div class="kv"><div><strong>常见环境：</strong>缓流、底层、夜间活跃</div><div><strong>生活习惯：</strong>偏底层摄食</div><div><strong>产品建议：</strong>可纳入“容易认出的大差异鱼”</div></div></article>
+      <article class="card"><div class="head"><div class="title">黑鱼幼体 / 乌鳢幼体（补充）</div><span class="tag native">扩展</span></div><div class="meta">更多作为认知补充，而不是高频小物主角</div><div class="desc">虽然不属于典型微物对象，但幼体阶段对很多用户有观察价值，也适合放在“可能偶遇”分类里，帮助用户区分掠食性鱼种幼体。</div><div class="kv"><div><strong>常见环境：</strong>静水草边、浅水区</div><div><strong>生活习惯：</strong>伏击型掠食倾向</div><div><strong>产品建议：</strong>做成补充页而非首页主推</div></div></article>
+    </div>
+  </section>
+
+  <div class="footer">
+    <p><strong>这版怎么用：</strong>先把它当作产品里的“候选鱼种清单 v1”。下一步更适合继续做的，是把这里面的鱼缩成约 40 个稳定条目，再给每个条目补充：识别特征、常见误认对象、生活习惯、适合的小物钓法、有趣事实。</p>
+    <p style="margin-top:.55rem;"><strong>参考方向：</strong>北京地区鱼类监测信息、常见淡水鱼图集、原生鱼爱好者分享与小物钓实际经验。物种层级在正式上线前仍建议逐条校核。</p>
+  </div>
+</div>
+</body>
+</html>
