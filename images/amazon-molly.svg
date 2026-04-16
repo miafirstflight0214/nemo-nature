@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08131c"/>
+      <stop offset="50%" stop-color="#0f2a3a"/>
+      <stop offset="100%" stop-color="#164a44"/>
+    </linearGradient>
+    <linearGradient id="fish" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#b8ffe1"/>
+      <stop offset="100%" stop-color="#69d2b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity="0.16" fill="#8df0cc">
+    <circle cx="180" cy="110" r="10"/><circle cx="1040" cy="140" r="7"/><circle cx="940" cy="500" r="12"/>
+    <circle cx="250" cy="500" r="6"/><circle cx="880" cy="90" r="5"/><circle cx="110" cy="420" r="8"/>
+  </g>
+  <g transform="translate(160 170)">
+    <path d="M90 135c120-110 370-110 530 0-160 110-410 110-530 0Z" fill="url(#fish)" opacity="0.95"/>
+    <path d="M620 135l150-95v190l-150-95Z" fill="#62c9a7"/>
+    <ellipse cx="285" cy="135" rx="165" ry="74" fill="#0d2230" opacity="0.22"/>
+    <circle cx="185" cy="120" r="16" fill="#0c1720"/>
+    <circle cx="190" cy="116" r="5" fill="#eefdf8"/>
+    <path d="M340 88c28-42 102-58 170-45-58 6-110 27-152 63Z" fill="#7de2c0" opacity="0.9"/>
+    <path d="M345 181c28 42 102 58 170 45-58-6-110-27-152-63Z" fill="#7de2c0" opacity="0.9"/>
+    <path d="M70 135c-34-22-57-47-70-75 6 50 6 100 0 150 16-30 39-55 70-75Z" fill="#72d8b6" opacity="0.9"/>
+    <path d="M215 136h275" stroke="#d8fff1" stroke-width="4" stroke-linecap="round" opacity="0.45"/>
+  </g>
+  <text x="88" y="90" fill="#bdf9e5" font-size="34" font-family="-apple-system, BlinkMacSystemFont, 'Noto Sans SC', sans-serif">2026-04-16 · 动物·自然</text>
+  <text x="86" y="540" fill="#f3fffb" font-size="56" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Noto Sans SC', sans-serif">Amazon molly</text>
+  <text x="88" y="588" fill="#aee9d4" font-size="28" font-family="-apple-system, BlinkMacSystemFont, 'Noto Sans SC', sans-serif">克隆十万年，还在悄悄修 DNA 的小鱼</text>
+</svg>
