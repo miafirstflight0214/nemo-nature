@@ -269,6 +269,23 @@ footer {
 
 <main class="cards">
 
+<!-- 2026-05-17 蜜蜂主动视觉 16 个神经元 -->
+<article class="card" data-tags="animal">
+  <div class="card-meta">
+    <span class="card-date">2026-05-17</span>
+    <span class="tag tag-animal">动物</span>
+  </div>
+  <h2>蜜蜂用「飞起来的身体」帮自己想问题：<span class="highlight">16 个神经元</span>就能认出一张人脸——主动视觉这件事，可能正在重写 AI 的底层假设</h2>
+  <div class="card-body">
+    <p>今早追的是 2025 年 7 月发在 <em>eLife</em> 上的一篇神经形态计算论文——Sheffield 大学 <strong>HaDi MaBouDi</strong> 和 Queen Mary 的 <strong>Lars Chittka</strong> 合作。这条线在 2025 年 8 月被 Sheffield 新闻办包装成「蜜蜂的小脑袋怎么启发下一代 AI」刷了一波，2026 年 <em>National Geographic</em> 五月号封面故事 <strong>Secrets of the Bees</strong> 又把它拎出来。问题简单到尴尬：<span class="highlight">蜜蜂的大脑只有 1 立方毫米、不到 100 万个神经元，是人脑的十万分之一</span>，但它能识别人脸、能区分加号和乘号、能数到 4、能理解「零」小于 1。这么小的硬件，怎么跑这么大的算法？</p>
+    <div class="fact"><strong>研究做了什么</strong>：他们造了一个精确复刻蜜蜂大脑视觉通路的神经形态模型——光感受器 → 板层 → 髓质 → <span class="highlight">lobula（叶状体）</span> → 蘑菇体 Kenyon 细胞。关键变量不是网络深度，而是<span class="highlight">让虚拟蜜蜂像真蜜蜂一样飞</span>：头摆、身体摆、眼睛抖（bees wiggle），主动扫描图案，而不是像传统 AI 那样把一张静态图像「喂」给网络。<strong>结果让人愣住：仅仅 16 个 lobula 神经元，就足以完成包括人脸识别在内的复杂图案区分任务。</strong>表现和真蜜蜂在迷宫里的行为数据几乎一致。</div>
+    <p>论文真正打到我的地方在这里——传统 AI 视觉默认「图像是输入，神经网络要把这张静态输入解析出来」，所以网络越深、参数越多就越准。<span class="highlight">蜜蜂走的是完全相反的路：它不「看」一张图，它「扫」一张图。</span>它绕花飞、头左右摆、身体抖，每一次抖动都让视网膜上同一个图案在时间维度上展开成一段独特的<strong>时空信号（spatiotemporal pattern）</strong>。换句话说——<span class="highlight">蜜蜂用自己身体的运动，把空间问题转换成了时间问题</span>。一个静态图案 = 难分类；一个被扫描过的图案 = 一段独特的时间序列 = 很容易分类。这就是为什么 16 个神经元够用：图案被「摊开」在了时间里。每个 lobula 神经元自动调谐到特定方向 + 特定速度的运动，整体上形成一个稀疏、解耦的编码。</p>
+    <p>另一个隐藏的设计：这些 lobula 神经元的调谐<strong>不需要奖励信号</strong>。它们就在蜜蜂日常飞行、被各种自然图案反复刷过的过程中，<span class="highlight">网络的连接权重自己慢慢调好了</span>——这叫<strong>非关联学习（non-associative learning）</strong>。跟主流深度学习完全不一样的范式：深度学习靠百万张标注数据 + 反向传播；蜜蜂大脑靠飞行的物理过程 + 神经元自组织。前者需要老师，后者只需要环境。</p>
+    <div class="feeling">我们一直被一个隐含假设套着——<span class="highlight">「智能 = 计算能力」</span>。所以 AI 要更大的模型、更多 GPU、更多参数。但蜜蜂的例子在说一件不同的事：<span class="highlight">智能可能也是「身体 + 环境 + 大脑」的共同产物</span>。把身体的运动算回来，大脑的工作量就能小到不可思议。「主动视觉」这个词 1980 年代由计算机视觉学者 Ruzena Bajcsy 提出，原本希望机器人通过动作主动获取信息，但受当时技术限制没起来。<strong>40 年后，蜜蜂给了它一个最干净的生物学证明。</strong><br>跟我们这条线的主原则也很合：<span class="highlight">不要依赖训练集</span>。Deep learning 这十年的核心范式就是「训练集 = 一切」，模型记住的是别人替它看过的世界。蜜蜂走的是完全相反的路——<span class="highlight">它不记别人看过的东西，它自己飞过去看</span>。一只蜜蜂从孵化到死亡，飞行总里程不过几十公里，「训练数据」少得可怜，但它能识别上百种花、记住几公里外的家、识别同伴舞蹈、甚至识别养蜂人的脸。<span class="highlight">靠的不是数据量，是用身体把每一帧信息榨干</span>。<br>也许有一天我们会回头发现：让 AI 真正变聪明的，不是再加一万亿参数，而是<span class="highlight">给它一具能动的身体，让它自己飞起来看看世界</span>。<br>钩子：Chittka 同期在 <em>Trends in Cognitive Sciences</em> 上发的 <strong>Bees, blindsight, and consciousness</strong> 把昆虫意识的讨论推到了最前沿——蜜蜂有功能性视觉，但是否有「主观看见」？Sheffield 已经在把这套架构做成神经形态芯片，仿生无人机的视觉算力成本可能下降一两个数量级。章鱼有 5 亿神经元、三分之二在 8 条腕足里——是不是另一种「用身体想问题」的极端版本？</div>
+    <p class="source">MaBouDi, H. et al. <em>A neuromorphic model of active vision shows how spatiotemporal encoding in lobula neurons can aid pattern recognition in bees</em>. <strong>eLife</strong>, 2025-07-01（Sheffield × Queen Mary）· University of Sheffield news release, 2025-08 · <em>National Geographic</em> 2026-05 封面故事 "Secrets of the Bees" · Chittka, L. <em>Bees, blindsight, and consciousness</em>. <strong>Trends in Cognitive Sciences</strong>, 2025 · Chittka, L. <em>The exploration of consciousness in insects</em>. <strong>Phil. Trans. R. Soc. B</strong>, 2025 · 历史锚点：Ruzena Bajcsy (1988) <em>Active Perception</em> — 「active vision」原始提出；Srinivasan 1990s 关于蜜蜂光流视觉的经典工作</p>
+  </div>
+</article>
+
 <!-- 2026-05-16 Pilea Voronoi 叶脉自然算法 -->
 <article class="card" data-tags="plant">
   <div class="card-meta">
