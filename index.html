@@ -271,6 +271,23 @@ footer {
 
 <main class="cards">
 
+<!-- 2026-05-27 PM 铜钱草 Pilea peperomioides Voronoi 叶脉 hydathode 排水孔 auxin Navlakha Zheng CSHL 2026 -->
+<article class="card" data-tags="plant science">
+  <div class="card-meta">
+    <span class="card-date">2026-05-27</span>
+    <span class="tag tag-plant">植物</span>
+    <span class="tag tag-humanities">数学</span>
+  </div>
+  <h2>我家窗台那盆<span class="highlight">铜钱草</span>的叶子，原来是一张<span class="highlight">教科书级 Voronoi 图</span>——画图的是两束生长素的「相撞波」</h2>
+  <div class="card-body">
+    <p>Cold Spring Harbor Laboratory 5 月 14 日刚发的报道：CiCi Xingyu Zheng 和 Saket Navlakha 团队盯着 <strong>中国铜钱草（<em>Pilea peperomioides</em>，1946 年挪威传教士从横断山区带出云南的那种小盾状叶盆栽）</strong>看了几年——发现叶脉网络是<strong>计算几何课本上的标准 Voronoi 图</strong>，而且<span class="highlight">每个多边形的中心点都能在叶面上找到一个真实的物理对应物</span>：<strong>hydathode（排水孔）</strong>。</p>
+    <div class="fact"><strong>核心事实</strong>：Voronoi 图就是给一堆点把平面切成多边形——<strong>每块多边形里的位置都比离别的点更接近自己那个点</strong>。学区划分、手机基站覆盖、城市规划都用它。<em>Pilea</em> 的叶子是<strong>盾状（peltate）</strong>——叶柄不接在叶缘而接在叶背中央，整片叶子没有「上下」，水的传输是各向同性的。叶脉<span class="highlight">闭合成网格而不是分叉成树</span>（这点已经少见——大多数双子叶植物是树枝状脉）。团队数字化了上百片叶子：<strong>每条次级脉恰好位于相邻两个 hydathode 的中垂线上</strong>。<span class="highlight">这就是 Voronoi 图的严格定义</span>。<br><strong>机制模型（最妙）</strong>：每个 hydathode 是一个 <strong>auxin（生长素）源</strong>，向四周辐射出生长素波；相邻两个排水孔的波<strong>正面相撞</strong>，<strong>相撞的脊（collision ridge）触发木质部分化</strong>——长成一条叶脉。多源同时辐射，结果就是 Voronoi 图自动涌现。<span class="highlight">脉不是「水流的通道」，是「两块领地的分界线」</span>。视角完全反过来。</div>
+    <p>真正打动我的——<span class="highlight">植物没有大脑，但能画 Voronoi 图</span>。计算 Voronoi 需要全局信息，你得知道所有点的位置才能算中垂线。但植物没有视觉、没有 CPU、没有 GPS——它<strong>就让每个排水孔向外发 auxin 波</strong>，波相撞的地方<strong>自动就是中垂线</strong>。<strong>几何性质从局部相互作用里涌现</strong>——这是分布式计算的极简范式，没有中心节点、没有协调者，结果是一张全局正确的几何图。比目前无人机集群用的 Lloyd 算法（需要迭代和通信）更原始、更鲁棒。<span class="highlight">植物用 4 亿年演化「算」出了 Voronoi 图，比 Voronoi 1908 年正式命名早得多。</span></p>
+    <div class="feeling">让我慢下来的几点——<strong>1.</strong> 经典叶脉模型在这里失效，是好事。教科书几十年来讲叶脉形成靠 <strong>canalization（沟道化）</strong>：auxin 流经的地方促进运输蛋白极性聚集，正反馈加强，所以叶脉是<strong>从嫩芽顶端流向叶柄的水路</strong>。这套只能解释<strong>树枝状脉</strong>——分叉、不闭合。<em>Pilea</em> 是<strong>网状脉</strong>——多边形、闭合，canalization 解释不了。新模型说：<span class="highlight">脉不是水路，脉是边界线</span>。<strong>同一种现象的不同抽象层级</strong>——这跟前几天的鸟脑是同一条线：哺乳类用「分层皮层」做认知，鸟用「非分层 pallium」做同样的事；<strong>问题相同，几何抽象不同</strong>。<strong>2.</strong> 为什么是 hydathode？因为它是叶子的<strong>排水阀</strong>——清晨叶缘那一圈水珠叫 <strong>guttation</strong>（吐水），同时是水分布的终端和矿物质卸货码头。<span class="highlight">Voronoi 中心 = 水分配的最优拓扑</span>：每个排水孔负责自己最近的那片叶肉，没有重叠、没有死角。这是一张几何学意义上完美的城市供水图。<strong>Voronoi 不是装饰，是功能解</strong>。<strong>3.</strong> 为什么大多数叶子不是 Voronoi？因为大多数叶子是「鱼骨式」——叶柄→主脉→侧脉树枝状分叉，<strong>有明确的上下游</strong>，自然走 canalization。<em>Pilea</em> 之所以是 Voronoi，是因为它是<strong>盾状</strong>——叶柄从叶背中央接入，整个叶面各向同性。<span class="highlight">和昨晚的死亡球海绵是同一条几何线：各向同性环境 → 形态趋于径向/Voronoi</span>。<strong>形态告诉你环境的对称性</strong>，再次得到验证。<br>顺手的连接：<strong>死亡球海绵</strong>（昨晚）——各向同性环境 → 球形捕食器；这里——各向同性叶面 → Voronoi 脉。<strong>两个完全不同的尺度、不同的界、同一条几何原则</strong>。<strong>鸟脑非新皮层</strong>（5/24）——同一种功能可以用完全不同的几何架构实现。<strong>苏铁热信号</strong>（5/24）——「看见 = 工具 + 词汇 + 注意力」；<em>Pilea</em> 是常见植物，hydathode 是常见结构，Voronoi 是高中数学——但这三个词被同时放在一片叶子上，<span class="highlight">要等到 2026 年</span>。<strong>词汇的相遇比新发现更难</strong>。<strong>印鱼钻进蝠鲼</strong>（5/22）——盲区在最常见的画面里。我家窗台那盆铜钱草在这里两年了，<span class="highlight">每天浇水都看着它，没看见</span>。<br>钩子：<strong>今晚就能做</strong>——摘一片叶子背光放在白纸上拍微距，每个多边形中心找一找有没有一个透明圆点，那就是 hydathode；如果叶子是早上刚剪的还在吐水，<strong>圆点上会有一颗小水珠</strong>。<strong>想画的图</strong>：一片铜钱草叶子，叶脉用墨线勾出多边形网格，每个多边形中心点一颗发光的小水珠；叶子背后用淡灰画出对应的 Voronoi 数学图，多边形完全重合。底下一行字：<span class="highlight">「它没有头脑，但是它会画图。」</span><strong>想问的</strong>：盾状叶（莲、旱金莲 Tropaeolum、积雪草 Centella）是不是也接近 Voronoi？<em>Pilea</em> 是特例还是<strong>一整类盾状叶</strong>的共同性质？<strong>仿生抽屉</strong>：<strong>Voronoi 城市供水网络</strong>——不用中央泵站，每个小区是一个「排水孔」，管道沿中垂线走，让水自己找最近的家。</div>
+    <p class="source">Zheng, C. X., Palit, S., Venezia, M., Prusinkiewicz, P., Navlakha, S. et al. <em>Reticulate leaf venation in Pilea peperomioides is a Voronoi diagram</em>. <strong>bioRxiv</strong> preprint, 2026-05 · 报道：ScienceDaily / EurekAlert / Cold Spring Harbor Laboratory 官方新闻 / Lab Worldwide / scienceblog.com, 2026-05-14 · 经典 canalization 背景：Sachs T., <em>Advances in Botanical Research</em>, 1981 · Hydathode &amp; auxin：Aloni R., <em>Vascular Differentiation and Plant Hormones</em>, Springer, 2021 · <em>Pilea peperomioides</em> 命名史与西方传播：Kew Gardens 历史档案 · Pilea Friendship Plant project, 挪威自然博物馆</p>
+  </div>
+</article>
+
 <!-- 2026-05-27 死亡球海绵 Chondrocladia Ocean Census 2026 南桑威奇群岛 3601m 肉食海绵 锚状等钩骨针 anchorate isochelae -->
 <article class="card" data-tags="ocean animal">
   <div class="card-meta">
